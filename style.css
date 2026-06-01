@@ -372,40 +372,49 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .blog-list {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     list-style: none;
     margin-left: 0;
 }
 
-.blog-list li {
-    color: #8b949e;
-    padding: 8px 0;
-    border-bottom: 1px solid #30363d;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
 .blog-list a {
     color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+    justify-content: space-between;
+    min-height: 84px;
+    padding: 12px;
     text-decoration: none;
 }
 
-.blog-list a:hover {
-    color: #7ee787;
+.blog-list li {
+    background: rgba(22, 27, 34, 0.58);
+    border: 1px solid #30363d;
+    border-left: 3px solid #7ee787;
+    border-radius: 6px;
+    color: #8b949e;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .blog-list li:hover {
-    color: #7ee787;
-    padding-left: 8px;
+    background: rgba(22, 27, 34, 0.9);
+    border-color: #3d4652;
+    color: #e6edf3;
+    transform: translateY(-2px);
 }
 
-.blog-list li:last-child {
-    border-bottom: none;
+.read-label {
+    color: #ffa657;
+    font-size: 12px;
 }
 
-.blog-list li::before {
-    content: "→ ";
+.blog-list li:hover .read-label {
     color: #7ee787;
-    margin-right: 8px;
 }
 
 /* CONTACT SECTION */
@@ -805,6 +814,10 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .research-list {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-list {
         grid-template-columns: 1fr;
     }
 
