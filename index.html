@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Егор Лукьянов | Senior Data Analyst</title>
     <link rel="stylesheet" href="style.css">
+    <script src="site.js" defer></script>
 </head>
 <body>
     <div class="terminal">
@@ -26,8 +27,15 @@
                 <div class="hero-content">
                     <img src="photo-000.jpg" alt="Егор Лукьянов" class="profile-photo">
                     <div class="hero-text">
-                        <h1>Мне нравится понимать, почему системы ведут себя именно так.</h1>
-                        <p class="subtitle">Senior Data Analyst, работаю с крупномасштабной аналитической инфраструктурой, экспериментами и AI-исследовательскими процессами.</p>
+                        <p class="eyebrow">Senior Data Analyst / исследование аналитических систем</p>
+                        <h1>Я исследую сложные аналитические системы и пытаюсь понять, почему они ведут себя именно так.</h1>
+                        <p class="subtitle">Работаю на стыке high-load data infrastructure, экспериментов, поведенческой аналитики и AI-related research workflows.</p>
+                        <div class="hero-facts" aria-label="Ключевые направления">
+                            <span>Ozon</span>
+                            <span>распределённая аналитика</span>
+                            <span>эксперименты</span>
+                            <span>оценка AI</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,6 +59,25 @@
                 </ul>
                 <p>Мне нравится исследовать сложные системы: базы данных под высокой нагрузкой, аналитические пайплайны, поведение conversational AI, динамику экспериментов и крупномасштабные пользовательские взаимодействия.</p>
                 <p>Больше всего меня интересует не просто построение метрик или пайплайнов, а понимание <em>почему</em> системы ведут себя именно так.</p>
+            </div>
+
+            <!-- RESEARCH INTERESTS -->
+            <div class="prompt-line">
+                <span class="prompt">$</span>
+                <span class="command">cat research_interests.md</span>
+            </div>
+            <div class="output research-section">
+                <p class="section-lead">Мне интересны не только метрики, а поведение систем, которые эти метрики порождают.</p>
+                <div class="research-list">
+                    <span>распределённые аналитические системы</span>
+                    <span>платформы экспериментов</span>
+                    <span>оценка conversational AI</span>
+                    <span>поведенческая аналитика</span>
+                    <span>надёжность пайплайнов</span>
+                    <span>крупномасштабная обработка данных</span>
+                    <span>наблюдаемость систем</span>
+                    <span>воспроизводимые исследовательские пайплайны</span>
+                </div>
             </div>
 
             <!-- WHAT I WORK WITH -->
@@ -110,13 +137,14 @@
             <!-- FEATURED PROJECTS -->
             <div class="prompt-line">
                 <span class="prompt">$</span>
-                <span class="command">cat projects/*.md</span>
+                <span class="command">cat investigations/*.md</span>
             </div>
             <div class="output projects-section">
                 <div class="project-item">
-                    <h3>Пайплайн оценки Conversational AI</h3>
-                    <p class="project-context"><strong>Контекст:</strong> Разработал крупномасштабный аналитический пайплайн для оценки ответов conversational AI.</p>
-                    <p><strong>Над чем работал:</strong></p>
+                    <p class="case-meta">кейс 01 / оценка AI</p>
+                    <h3>Пайплайн оценки ответов Conversational AI</h3>
+                    <p class="project-context"><strong>Контекст:</strong> нужно было превратить нестабильные, неструктурированные AI-ответы в воспроизводимый аналитический процесс.</p>
+                    <p><strong>Что исследовал и собирал:</strong></p>
                     <ul>
                         <li>нормализация ответов</li>
                         <li>семантическая категоризация</li>
@@ -125,13 +153,14 @@
                         <li>аналитическая разметка</li>
                         <li>обработка больших CSV</li>
                     </ul>
-                    <p><strong>Фокус:</strong> Построение надёжных процессов для анализа неструктурированных AI-взаимодействий.</p>
+                    <p><strong>Фокус:</strong> надёжность оценки, промежуточные состояния, повторяемость пайплайна и объяснимость результата.</p>
                 </div>
 
                 <div class="project-item">
+                    <p class="case-meta">кейс 02 / аналитическая инфраструктура</p>
                     <h3>Исследование высоконагруженных аналитических систем</h3>
-                    <p class="project-context"><strong>Контекст:</strong> Работал с крупномасштабной аналитической инфраструктурой внутри маркетплейса.</p>
-                    <p><strong>Области фокуса:</strong></p>
+                    <p class="project-context"><strong>Контекст:</strong> работа с крупномасштабной аналитической инфраструктурой внутри маркетплейса, где стоимость абстракций быстро становится инфраструктурной реальностью.</p>
+                    <p><strong>Области исследования:</strong></p>
                     <ul>
                         <li>стратегии партиционирования</li>
                         <li>производительность распределённых запросов</li>
@@ -143,8 +172,9 @@
                 </div>
 
                 <div class="project-item">
+                    <p class="case-meta">кейс 03 / эксперименты</p>
                     <h3>Эксперименты и поведенческая аналитика</h3>
-                    <p class="project-context"><strong>Фокус:</strong> Проектирование и интерпретация экспериментов в крупномасштабных продуктовых средах.</p>
+                    <p class="project-context"><strong>Фокус:</strong> проектирование и интерпретация экспериментов в крупномасштабных продуктовых средах, где метрика часто показывает только верхний слой поведения.</p>
                     <p><strong>Методы:</strong></p>
                     <ul>
                         <li>A/B тестирование</li>
@@ -155,6 +185,22 @@
                     </ul>
                     <p><strong>Цель:</strong> Понимание поведения пользователей за пределами поверхностных метрик.</p>
                 </div>
+            </div>
+
+            <!-- WHAT I THINK ABOUT -->
+            <div class="prompt-line">
+                <span class="prompt">$</span>
+                <span class="command">cat things_i_think_about.txt</span>
+            </div>
+            <div class="output thinking-section">
+                <p class="section-lead">В работе я чаще всего возвращаюсь к вопросам, где продуктовая логика, данные и инфраструктура начинают влиять друг на друга.</p>
+                <ul class="thought-list">
+                    <li>почему распределённые системы деградируют непредсказуемо;</li>
+                    <li>как аналитические абстракции прячут инфраструктурную стоимость;</li>
+                    <li>как оценивать conversational AI так, чтобы результату можно было доверять;</li>
+                    <li>где A/B тесты перестают объяснять поведение пользователей;</li>
+                    <li>как строить исследовательские пайплайны, которые можно воспроизвести через месяц.</li>
+                </ul>
             </div>
 
             <!-- PHILOSOPHY -->
@@ -183,12 +229,12 @@
             <div class="output blog-section">
                 <p class="blog-intro">О чём со мной можно поговорить:</p>
                 <ul class="blog-list">
-                    <li>Чему меня научили 3 миллиарда партиций в аналитических системах</li>
-                    <li>Почему оценка conversational AI сложнее, чем кажется</li>
-                    <li>Отладка memory pressure в распределённой аналитике</li>
-                    <li>Когда A/B тесты врут</li>
-                    <li>Построение надёжных асинхронных исследовательских пайплайнов</li>
-                    <li>Наблюдения из работы с высоконагруженной аналитической инфраструктурой</li>
+                    <li><a href="blog/3-billion-partitions.html">Чему меня научили 3 миллиарда партиций в аналитических системах</a></li>
+                    <li><a href="blog/conversational-ai-evaluation.html">Почему оценка conversational AI сложнее, чем кажется</a></li>
+                    <li><a href="blog/memory-pressure.html">Отладка memory pressure в распределённой аналитике</a></li>
+                    <li><a href="blog/ab-tests-lie.html">Когда A/B тесты врут</a></li>
+                    <li><a href="blog/research-pipelines.html">Построение надёжных асинхронных исследовательских пайплайнов</a></li>
+                    <li><a href="blog/analytical-infrastructure-notes.html">Наблюдения из работы с высоконагруженной аналитической инфраструктурой</a></li>
                 </ul>
             </div>
 
@@ -197,7 +243,7 @@
                 <span class="prompt">$</span>
                 <span class="command">cat contact.json</span>
             </div>
-            <div class="output contact-section">
+            <div class="output contact-section" id="contacts">
                 <a href="mailto:yegor2010yy@yahoo.com" class="contact-link">
                     <span class="icon">✉</span> yegor2010yy@yahoo.com
                 </a>
