@@ -1,4 +1,6 @@
-const trafficMessages = {
+const pageLanguage = document.body.dataset.language === "en" ? "en" : "ru";
+
+const trafficMessagesByLanguage = { ru: {
     close: {
         title: "process.exit() отменён",
         dot: "close",
@@ -34,6 +36,49 @@ const trafficMessages = {
         `,
         primary: "открыть контакты",
         secondary: "понятно, продолжаю"
+    }
+}, en: {
+    close: {
+        title: "process.exit() cancelled",
+        dot: "close",
+        body: `<p>Wait, don't close this just yet.</p><p>To discuss analytics, experimentation, AI evaluation, or unusual system behavior, you can reach Yegor through the contact section.</p>`,
+        primary: "open contacts",
+        secondary: "keep reading"
+    },
+    minimize: {
+        title: "background mode enabled",
+        dot: "minimize",
+        body: `<p>The site is supposedly minimized, but the process is still running.</p><p>In the background, Yegor is usually thinking about:</p><ul><li>memory pressure;</li><li>A/B tests that look a little too certain;</li><li>metrics that show what changed without explaining why.</li></ul><p>You can send him a message before the process goes to sleep.</p>`,
+        primary: "open contacts",
+        secondary: "return to reading"
+    },
+    maximize: {
+        title: "profile context: open",
+        dot: "maximize",
+        body: `<p>If you are an HR, PO, or TGM and clicked just to test the button: it works.</p><p>The site includes examples of Yegor's work with experimentation, analytical infrastructure, and Conversational AI evaluation.</p>`,
+        primary: "open contacts",
+        secondary: "continue"
+    }
+}};
+
+const trafficMessages = trafficMessagesByLanguage[pageLanguage];
+const interfaceText = pageLanguage === "en" ? {
+    terminalPrefix: "terminal",
+    modalTitle: "terminal/process",
+    closeMenu: "Close menu",
+    buttonLabels: {
+        close: "Show close-button easter egg",
+        minimize: "Show minimize-button easter egg",
+        maximize: "Show maximize-button easter egg"
+    }
+} : {
+    terminalPrefix: "терминал",
+    modalTitle: "терминал/процесс",
+    closeMenu: "Закрыть меню",
+    buttonLabels: {
+        close: "Показать пасхалку закрытия",
+        minimize: "Показать пасхалку сворачивания",
+        maximize: "Показать пасхалку разворачивания"
     }
 };
 
@@ -80,7 +125,7 @@ function openTrafficModal(kind) {
 
     lastFocusedElement = document.activeElement;
     overlay.querySelector(".traffic-dot").className = `traffic-dot ${message.dot}`;
-    overlay.querySelector(".traffic-modal-title").textContent = `терминал/${message.title}`;
+    overlay.querySelector(".traffic-modal-title").textContent = `${interfaceText.terminalPrefix}/${message.title}`;
     overlay.querySelector(".traffic-modal-body h2").textContent = message.title;
     overlay.querySelector(".traffic-modal-copy").innerHTML = message.body;
     overlay.querySelector("[data-traffic-primary]").textContent = message.primary;
@@ -98,7 +143,7 @@ function createTrafficModal() {
         <div class="traffic-modal" role="dialog" aria-modal="true" aria-labelledby="traffic-title">
             <div class="traffic-modal-header">
                 <span class="traffic-dot close"></span>
-                <span class="traffic-modal-title">терминал/процесс</span>
+                <span class="traffic-modal-title">${interfaceText.modalTitle}</span>
             </div>
             <div class="traffic-modal-body">
                 <h2 id="traffic-title"></h2>
@@ -123,18 +168,12 @@ function createTrafficModal() {
 }
 
 function setupTrafficButtons() {
-    const labels = {
-        close: "Показать пасхалку закрытия",
-        minimize: "Показать пасхалку сворачивания",
-        maximize: "Показать пасхалку разворачивания"
-    };
-
     document.querySelectorAll(".button.close, .button.minimize, .button.maximize").forEach((button) => {
         const kind = ["close", "minimize", "maximize"].find((name) => button.classList.contains(name));
 
         button.setAttribute("role", "button");
         button.setAttribute("tabindex", "0");
-        button.setAttribute("aria-label", labels[kind]);
+        button.setAttribute("aria-label", interfaceText.buttonLabels[kind]);
         button.addEventListener("click", () => openTrafficModal(kind));
         button.addEventListener("keydown", (event) => {
             if (event.key === "Enter" || event.key === " ") {
@@ -156,7 +195,7 @@ function setupMobileMenu() {
     const backdrop = document.createElement("button");
     backdrop.className = "menu-backdrop";
     backdrop.type = "button";
-    backdrop.setAttribute("aria-label", "Закрыть меню");
+    backdrop.setAttribute("aria-label", interfaceText.closeMenu);
     document.body.appendChild(backdrop);
 
     const closeMenu = () => {
@@ -331,6 +370,62 @@ function setupReadingProgress() {
     updateProgress();
 }
 
+function setupLanguagePreference() {
+    const currentLanguage = document.body.dataset.language;
+    const isLocaleHome = document.body.dataset.localeHome === "true";
+    const languageLinks = [...document.querySelectorAll(".language-switch [data-language]")];
+
+    if (!currentLanguage || !languageLinks.length) {
+        return;
+    }
+
+    const storageKey = "portfolio-language";
+    let savedLanguage = null;
+
+    try {
+        savedLanguage = localStorage.getItem(storageKey);
+    } catch (error) {
+        savedLanguage = null;
+    }
+
+    languageLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            try {
+                localStorage.setItem(storageKey, link.dataset.language);
+            } catch (error) {
+                // The link still works when storage is unavailable.
+            }
+        });
+    });
+
+    let preferredLanguage = savedLanguage;
+
+    if (!preferredLanguage && isLocaleHome) {
+        const browserLanguages = navigator.languages?.length
+            ? navigator.languages
+            : [navigator.language || "en"];
+        preferredLanguage = browserLanguages.some((language) => language.toLowerCase().startsWith("ru"))
+            ? "ru"
+            : "en";
+
+        try {
+            localStorage.setItem(storageKey, preferredLanguage);
+        } catch (error) {
+            // Locale detection remains useful without persistence.
+        }
+    }
+
+    if (!preferredLanguage || preferredLanguage === currentLanguage) {
+        return;
+    }
+
+    const target = languageLinks.find((link) => link.dataset.language === preferredLanguage);
+
+    if (target) {
+        window.location.replace(target.href + window.location.hash);
+    }
+}
+
 document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
         closeTrafficModal();
@@ -344,3 +439,4 @@ setupSectionNavigation();
 setupBootSequence();
 setupRevealAnimations();
 setupReadingProgress();
+setupLanguagePreference();

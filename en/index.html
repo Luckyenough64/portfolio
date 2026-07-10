@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yegor Lukyanov's portfolio: analytical systems, experimentation, data infrastructure, and AI evaluation.">
+    <title>Yegor Lukyanov | Analytical Systems</title>
+    <link rel="canonical" href="https://luckyenough64.github.io/portfolio/en/">
+    <link rel="alternate" hreflang="ru" href="https://luckyenough64.github.io/portfolio/">
+    <link rel="alternate" hreflang="en" href="https://luckyenough64.github.io/portfolio/en/">
+    <link rel="alternate" hreflang="x-default" href="https://luckyenough64.github.io/portfolio/">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../site.js" defer></script>
+</head>
+<body data-language="en" data-locale-home="true">
+    <div class="app">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">YEGOR.SYSTEMS</div>
+            <div class="sidebar-role">analytical research console</div>
+            <div class="buttons" aria-label="Terminal easter eggs"><span class="button close"></span><span class="button minimize"></span><span class="button maximize"></span></div>
+            <nav class="sidebar-nav" aria-label="Navigation"><a class="active" href="#overview">01 overview</a><a href="#about">02 profile</a><a href="#focus">03 focus</a><a href="#work">04 work</a><a href="#logs">05 notes</a><a href="#contacts">06 contact</a></nav>
+            <div class="sidebar-footer"><div class="system-online">● SYSTEM ONLINE</div><div>6 notes · 3 investigations</div><div>updated: 2026-07</div></div>
+        </aside>
+        <main class="main">
+            <header class="toolbar"><button class="mobile-menu" type="button" aria-controls="sidebar" aria-expanded="false">≡</button><span class="toolbar-crumb">~/portfolio/overview</span><div class="toolbar-meta"><span>Senior Data Analyst</span><nav class="language-switch" aria-label="Language"><a data-language="ru" href="../index.html">RU</a><a class="active" data-language="en" href="index.html" aria-current="page">EN</a></nav><span>available</span></div></header>
+            <div class="dashboard">
+                <section id="overview">
+                    <div class="identity"><div><div class="command"><b>$</b> whois yegor</div><h1>I work with analytical systems, experimentation, and AI evaluation.</h1><p class="identity-copy">I am a Senior Data Analyst at Ozon. My work combines product analytics, data infrastructure, and research into the causes of observed system behavior.</p></div><img class="profile-photo" src="../photo-000.jpg" alt="Yegor Lukyanov"></div>
+                    <div class="status-grid" aria-label="Profile summary"><div class="status-item"><div class="status-label">position</div><div class="status-value">Senior</div></div><div class="status-item"><div class="status-label">focus</div><div class="status-value green">Systems</div></div><div class="status-item"><div class="status-label">mode</div><div class="status-value orange">Research</div></div><div class="status-item"><div class="status-label">contact</div><div class="status-value green">Open</div></div></div>
+                </section>
+                <section class="console-section" id="about">
+                    <header class="section-header"><h2>$ cat profile.md</h2><span>about / perspective</span></header>
+                    <div class="section-body about-grid"><div class="about-copy"><p>I am a Senior Data Analyst at Ozon, one of the largest e-commerce platforms in the CIS.</p><p>I started in web analytics and marketing, working with product and behavioral data. Later, I moved toward data infrastructure, distributed systems, and analytics engineering.</p><p>Today my work sits between product analytics, experimentation, data engineering, AI tools, and systems research.</p><div class="about-quote">Metrics describe a change. The next step is to test which causes are consistent with it.</div></div><ul class="interest-list"><li>how systems behave as load grows</li><li>which costs are hidden by analytical abstractions</li><li>how to define evaluation criteria for conversational AI</li><li>how to interpret A/B test results</li><li>how to design reproducible pipelines</li></ul></div>
+                </section>
+                <section class="console-section" id="focus">
+                    <header class="section-header"><h2>$ monitor research_focus --live</h2><span>3 active signals</span></header>
+                    <div class="section-body signals"><article class="signal"><div class="signal-top"><small>INFRASTRUCTURE</small><i class="signal-dot"></i></div><h3>Distributed analytics</h3><p>Load, partitioning, memory pressure, queries, and cluster behavior.</p><div class="trace"></div></article><article class="signal"><div class="signal-top"><small>EXPERIMENTS</small><i class="signal-dot"></i></div><h3>Causality and behavior</h3><p>A/B tests, sensitivity, segments, and interpretation of effects.</p><div class="trace"></div></article><article class="signal"><div class="signal-top"><small>AI SYSTEMS</small><i class="signal-dot"></i></div><h3>Conversational AI evaluation</h3><p>Correctness, usefulness, and reproducibility of evaluation workflows.</p><div class="trace"></div></article></div>
+                </section>
+                <div class="workspace" id="work">
+                    <section class="console-section"><header class="section-header"><h2>$ cat investigations/index.json</h2><span>3 entries</span></header><div class="section-body"><article class="investigation"><span class="investigation-code">INV-001</span><div><h3>Conversational AI response evaluation pipeline</h3><p>Normalization, semantic categorization, asynchronous processing, checkpoints, and analytical labeling.</p><ul><li>Focus: reliable and reproducible evaluation</li><li>Python · async · LLM workflows</li></ul></div></article><article class="investigation"><span class="investigation-code">INV-002</span><div><h3>High-load analytical systems</h3><p>Partitioning strategies, memory pressure, distributed queries, and cluster behavior.</p><ul><li>Vertica · ClickHouse · HDFS</li><li>SQL · Python</li></ul></div></article><article class="investigation"><span class="investigation-code">INV-003</span><div><h3>Experimentation and behavioral analytics</h3><p>Designing and interpreting experiments beyond surface-level metrics.</p><ul><li>A/B · survival analysis · Cox</li><li>Logit · behavioral segmentation</li></ul></div></article></div></section>
+                    <section class="console-section"><header class="section-header"><h2>$ ls -la tech_stack/</h2><span>toolkit</span></header><div class="section-body technology-groups"><div class="technology-group"><h3>Data platforms</h3><div class="tags"><span class="tag">Vertica</span><span class="tag">ClickHouse</span><span class="tag">HDFS</span><span class="tag">ETL / ELT</span></div></div><div class="technology-group"><h3>Analytics</h3><div class="tags"><span class="tag">A/B testing</span><span class="tag">OLS</span><span class="tag">Logit</span><span class="tag">Cox</span><span class="tag">Kaplan-Meier</span></div></div><div class="technology-group"><h3>Engineering</h3><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Async</span><span class="tag">Automation</span></div></div><div class="technology-group"><h3>AI research</h3><div class="tags"><span class="tag">LLM workflows</span><span class="tag">Prompt engineering</span><span class="tag">Conversational analysis</span></div></div></div></section>
+                </div>
+                <section class="console-section" id="logs"><header class="section-header"><h2>$ ls -lt research_logs/</h2><span>6 published</span></header><div class="section-body logs"><a class="log-card" href="blog/3-billion-partitions.html"><time>LOG 001 · INFRASTRUCTURE</time><h3>What three billion partitions taught me</h3><span>read log →</span></a><a class="log-card" href="blog/conversational-ai-evaluation.html"><time>LOG 002 · AI EVALUATION</time><h3>Why evaluating Conversational AI is harder than it looks</h3><span>read log →</span></a><a class="log-card" href="blog/memory-pressure.html"><time>LOG 003 · PERFORMANCE</time><h3>Debugging memory pressure in distributed analytics</h3><span>read log →</span></a><a class="log-card" href="blog/ab-tests-lie.html"><time>LOG 004 · EXPERIMENTS</time><h3>When A/B test results mislead</h3><span>read log →</span></a><a class="log-card" href="blog/research-pipelines.html"><time>LOG 005 · RELIABILITY</time><h3>Reliable asynchronous research pipelines</h3><span>read log →</span></a><a class="log-card" href="blog/analytical-infrastructure-notes.html"><time>LOG 006 · SYSTEMS</time><h3>Notes on analytical infrastructure</h3><span>read log →</span></a></div></section>
+                <section class="contactbar" id="contacts"><p><b>$</b> initiate conversation --topic systems</p><div class="contact-links"><a href="mailto:yegor2010yy@yahoo.com">Email</a><a href="https://t.me/luckyenough" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://github.com/Luckyenough64" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/luckyenough/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></section>
+                <footer class="page-footer">YEGOR.SYSTEMS · analytical research console</footer>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
