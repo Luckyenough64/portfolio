@@ -3,296 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Егор Лукьянов | Senior Data Analyst</title>
+    <meta name="description" content="Портфолио Егора Лукьянова — Senior Data Analyst, исследование аналитических систем, экспериментов и AI.">
+    <title>Егор Лукьянов | Analytical Systems</title>
     <link rel="stylesheet" href="style.css">
     <script src="site.js" defer></script>
 </head>
 <body>
-    <div class="terminal">
-        <div class="terminal-header">
-            <div class="buttons">
+    <div class="app">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">YEGOR.SYSTEMS</div>
+            <div class="sidebar-role">analytical research console</div>
+            <div class="buttons" aria-label="Пасхалки терминала">
                 <span class="button close"></span>
                 <span class="button minimize"></span>
                 <span class="button maximize"></span>
             </div>
-            <div class="title">yegor@research:~</div>
-        </div>
-        <div class="terminal-body">
-            <!-- HERO SECTION -->
-            <div class="prompt-line">
-                <span class="prompt">$</span>
-                <span class="command">cat hero.txt</span>
+            <nav class="sidebar-nav" aria-label="Навигация">
+                <a class="active" href="#overview">01 обзор</a>
+                <a href="#about">02 профиль</a>
+                <a href="#focus">03 фокус</a>
+                <a href="#work">04 работа</a>
+                <a href="#logs">05 заметки</a>
+                <a href="#contacts">06 контакты</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="system-online">● SYSTEM ONLINE</div>
+                <div>6 notes · 3 investigations</div>
+                <div>updated: 2026-07</div>
             </div>
-            <div class="output hero-section">
-                <div class="hero-content">
-                    <img src="photo-000.jpg" alt="Егор Лукьянов" class="profile-photo">
-                    <div class="hero-text">
-                        <p class="eyebrow">Senior Data Analyst / исследование аналитических систем</p>
-                        <h1>Я исследую сложные аналитические системы и пытаюсь понять, почему они ведут себя именно так.</h1>
-                        <p class="subtitle">Работаю на стыке high-load data infrastructure, экспериментов, поведенческой аналитики и AI-related research workflows.</p>
-                        <div class="hero-facts" aria-label="Ключевые направления">
-                            <span>Ozon</span>
-                            <span>распределённая аналитика</span>
-                            <span>эксперименты</span>
-                            <span>оценка AI</span>
+        </aside>
+
+        <main class="main">
+            <header class="toolbar">
+                <button class="mobile-menu" type="button" aria-controls="sidebar" aria-expanded="false">≡</button>
+                <span class="toolbar-crumb">~/portfolio/overview</span>
+                <div class="toolbar-meta"><span>Senior Data Analyst</span><span>RU / EN</span><span>available</span></div>
+            </header>
+
+            <div class="dashboard">
+                <section id="overview">
+                    <div class="identity">
+                        <div>
+                            <div class="command"><b>$</b> whois yegor</div>
+                            <h1>Работаю с аналитическими системами, экспериментами и оценкой AI.</h1>
+                            <p class="identity-copy">Я Senior Data Analyst в Ozon. В проектах совмещаю продуктовую аналитику, работу с инфраструктурой данных и исследование причин наблюдаемого поведения систем.</p>
                         </div>
+                        <img class="profile-photo" src="photo-000.jpg" alt="Егор Лукьянов">
                     </div>
-                </div>
-            </div>
-
-            <!-- ABOUT ME -->
-            <div class="prompt-line">
-                <span class="prompt">$</span>
-                <span class="command">cat about.md</span>
-            </div>
-            <div class="output about-section">
-                <p>Я Senior Data Analyst, работаю в Ozon — одной из крупнейших e-commerce платформ в СНГ.</p>
-                <p>Последние годы работаю с крупномасштабными аналитическими системами, платформами экспериментов и инфраструктурно-тяжёлыми data-процессами.</p>
-                <p>Начинал с веб-аналитики и маркетинга, что дало мне сильную продуктовую и поведенческую перспективу. Позже ушёл глубже в data-инфраструктуру, распределённые системы и аналитическую инженерию.</p>
-                <p>Сегодня моя работа находится где-то между:</p>
-                <ul>
-                    <li>продуктовой аналитикой,</li>
-                    <li>экспериментами,</li>
-                    <li>data engineering,</li>
-                    <li>AI-инструментами,</li>
-                    <li>и исследовательским системным анализом.</li>
-                </ul>
-                <p>Мне нравится исследовать сложные системы: базы данных под высокой нагрузкой, аналитические пайплайны, поведение conversational AI, динамику экспериментов и крупномасштабные пользовательские взаимодействия.</p>
-                <p>Больше всего меня интересует не просто построение метрик или пайплайнов, а понимание <em>почему</em> системы ведут себя именно так.</p>
-            </div>
-
-            <!-- RESEARCH INTERESTS -->
-            <div class="prompt-line">
-                <span class="prompt">$</span>
-                <span class="command">cat research_interests.md</span>
-            </div>
-            <div class="output research-section">
-                <p class="section-lead">Мне интересны не только метрики, а поведение систем, которые эти метрики порождают.</p>
-                <div class="research-list">
-                    <span>распределённые аналитические системы</span>
-                    <span>платформы экспериментов</span>
-                    <span>оценка conversational AI</span>
-                    <span>поведенческая аналитика</span>
-                    <span>надёжность пайплайнов</span>
-                    <span>крупномасштабная обработка данных</span>
-                    <span>наблюдаемость систем</span>
-                    <span>воспроизводимые исследовательские пайплайны</span>
-                </div>
-            </div>
-
-            <!-- WHAT I WORK WITH -->
-            <div class="prompt-line">
-                <span class="prompt">$</span>
-                <span class="command">ls -la tech_stack/</span>
-            </div>
-            <div class="output tech-section">
-                <div class="tech-category">
-                    <h3>Инфраструктура и Data-платформы</h3>
-                    <div class="tech-tags">
-                        <span class="tag">Vertica</span>
-                        <span class="tag">ClickHouse</span>
-                        <span class="tag">HDFS</span>
-                        <span class="tag">Distributed analytical systems</span>
-                        <span class="tag">High-load data environments</span>
-                        <span class="tag">ETL / ELT pipelines</span>
+                    <div class="status-grid" aria-label="Краткий профиль">
+                        <div class="status-item"><div class="status-label">position</div><div class="status-value">Senior</div></div>
+                        <div class="status-item"><div class="status-label">focus</div><div class="status-value green">Systems</div></div>
+                        <div class="status-item"><div class="status-label">mode</div><div class="status-value orange">Research</div></div>
+                        <div class="status-item"><div class="status-label">contact</div><div class="status-value green">Open</div></div>
                     </div>
-                </div>
+                </section>
 
-                <div class="tech-category">
-                    <h3>Аналитика и эксперименты</h3>
-                    <div class="tech-tags">
-                        <span class="tag">Product analytics</span>
-                        <span class="tag">A/B testing</span>
-                        <span class="tag">Statistical analysis</span>
-                        <span class="tag">OLS / Logit / Cox / Kaplan-Meier</span>
-                        <span class="tag">Behavioral analysis</span>
-                        <span class="tag">Metric design</span>
+                <section class="console-section" id="about">
+                    <header class="section-header"><h2>$ cat profile.md</h2><span>about / perspective</span></header>
+                    <div class="section-body about-grid">
+                        <div class="about-copy">
+                            <p>Я Senior Data Analyst, работаю в Ozon — одной из крупнейших e-commerce платформ в СНГ.</p>
+                            <p>Начинал с веб-аналитики и маркетинга, где получил опыт работы с продуктовыми и поведенческими данными. Позже перешёл к data-инфраструктуре, распределённым системам и аналитической инженерии.</p>
+                            <p>Сегодня моя работа находится между продуктовой аналитикой, экспериментами, data engineering, AI-инструментами и исследовательским системным анализом.</p>
+                            <div class="about-quote">Метрики описывают изменение. Дальше нужно проверить, какие причины с ним согласуются.</div>
+                        </div>
+                        <ul class="interest-list">
+                            <li>как системы ведут себя при росте нагрузки</li>
+                            <li>какие затраты скрывают аналитические абстракции</li>
+                            <li>как задавать критерии оценки conversational AI</li>
+                            <li>как интерпретировать результаты A/B-тестов</li>
+                            <li>как проектировать воспроизводимые пайплайны</li>
+                        </ul>
                     </div>
-                </div>
+                </section>
 
-                <div class="tech-category">
-                    <h3>Инженерия и автоматизация</h3>
-                    <div class="tech-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Async pipelines</span>
-                        <span class="tag">Workflow automation</span>
-                        <span class="tag">Data processing</span>
-                        <span class="tag">Performance optimization</span>
+                <section class="console-section" id="focus">
+                    <header class="section-header"><h2>$ monitor research_focus --live</h2><span>3 active signals</span></header>
+                    <div class="section-body signals">
+                        <article class="signal"><div class="signal-top"><small>INFRASTRUCTURE</small><i class="signal-dot"></i></div><h3>Распределённая аналитика</h3><p>Нагрузка, партиционирование, memory pressure, запросы и поведение кластеров.</p><div class="trace"></div></article>
+                        <article class="signal"><div class="signal-top"><small>EXPERIMENTS</small><i class="signal-dot"></i></div><h3>Причинность и поведение</h3><p>A/B тесты, чувствительность, сегменты и интерпретация эффектов.</p><div class="trace"></div></article>
+                        <article class="signal"><div class="signal-top"><small>AI SYSTEMS</small><i class="signal-dot"></i></div><h3>Оценка Conversational AI</h3><p>Корректность, полезность и воспроизводимость процессов оценки.</p><div class="trace"></div></article>
                     </div>
+                </section>
+
+                <div class="workspace" id="work">
+                    <section class="console-section">
+                        <header class="section-header"><h2>$ cat investigations/index.json</h2><span>3 entries</span></header>
+                        <div class="section-body">
+                            <article class="investigation"><span class="investigation-code">INV-001</span><div><h3>Пайплайн оценки ответов Conversational AI</h3><p>Нормализация, семантическая категоризация, асинхронная обработка, чекпоинты и аналитическая разметка.</p><ul><li>Фокус: надёжность и воспроизводимость оценки</li><li>Python · async · LLM workflows</li></ul></div></article>
+                            <article class="investigation"><span class="investigation-code">INV-002</span><div><h3>Высоконагруженные аналитические системы</h3><p>Стратегии партиционирования, memory pressure, распределённые запросы и поведение кластера.</p><ul><li>Vertica · ClickHouse · HDFS</li><li>SQL · Python</li></ul></div></article>
+                            <article class="investigation"><span class="investigation-code">INV-003</span><div><h3>Эксперименты и поведенческая аналитика</h3><p>Проектирование и интерпретация экспериментов за пределами поверхностных метрик.</p><ul><li>A/B · survival analysis · Cox</li><li>Logit · поведенческая сегментация</li></ul></div></article>
+                        </div>
+                    </section>
+
+                    <section class="console-section">
+                        <header class="section-header"><h2>$ ls -la tech_stack/</h2><span>toolkit</span></header>
+                        <div class="section-body technology-groups">
+                            <div class="technology-group"><h3>Data platforms</h3><div class="tags"><span class="tag">Vertica</span><span class="tag">ClickHouse</span><span class="tag">HDFS</span><span class="tag">ETL / ELT</span></div></div>
+                            <div class="technology-group"><h3>Analytics</h3><div class="tags"><span class="tag">A/B testing</span><span class="tag">OLS</span><span class="tag">Logit</span><span class="tag">Cox</span><span class="tag">Kaplan-Meier</span></div></div>
+                            <div class="technology-group"><h3>Engineering</h3><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Async</span><span class="tag">Automation</span></div></div>
+                            <div class="technology-group"><h3>AI research</h3><div class="tags"><span class="tag">LLM workflows</span><span class="tag">Prompt engineering</span><span class="tag">Conversational analysis</span></div></div>
+                        </div>
+                    </section>
                 </div>
 
-                <div class="tech-category">
-                    <h3>AI и исследовательские инструменты</h3>
-                    <div class="tech-tags">
-                        <span class="tag">LLM workflows</span>
-                        <span class="tag">Conversational analysis</span>
-                        <span class="tag">Prompt engineering</span>
-                        <span class="tag">Response normalization</span>
-                        <span class="tag">AI-assisted research pipelines</span>
+                <section class="console-section" id="logs">
+                    <header class="section-header"><h2>$ ls -lt research_logs/</h2><span>6 published</span></header>
+                    <div class="section-body logs">
+                        <a class="log-card" href="blog/3-billion-partitions.html"><time>LOG 001 · INFRASTRUCTURE</time><h3>Чему меня научили 3 миллиарда партиций</h3><span>читать лог →</span></a>
+                        <a class="log-card" href="blog/conversational-ai-evaluation.html"><time>LOG 002 · AI EVALUATION</time><h3>Почему оценка Conversational AI сложнее, чем кажется</h3><span>читать лог →</span></a>
+                        <a class="log-card" href="blog/memory-pressure.html"><time>LOG 003 · PERFORMANCE</time><h3>Отладка memory pressure в распределённой аналитике</h3><span>читать лог →</span></a>
+                        <a class="log-card" href="blog/ab-tests-lie.html"><time>LOG 004 · EXPERIMENTS</time><h3>Когда результаты A/B-тестов вводят в заблуждение</h3><span>читать лог →</span></a>
+                        <a class="log-card" href="blog/research-pipelines.html"><time>LOG 005 · RELIABILITY</time><h3>Надёжные асинхронные исследовательские пайплайны</h3><span>читать лог →</span></a>
+                        <a class="log-card" href="blog/analytical-infrastructure-notes.html"><time>LOG 006 · SYSTEMS</time><h3>Наблюдения из работы с аналитической инфраструктурой</h3><span>читать лог →</span></a>
                     </div>
-                </div>
-            </div>
+                </section>
 
-            <!-- FEATURED PROJECTS -->
-            <div class="prompt-line">
-                <span class="prompt">$</span>
-                <span class="command">cat investigations/*.md</span>
+                <section class="contactbar" id="contacts">
+                    <p><b>$</b> initiate conversation --topic systems</p>
+                    <div class="contact-links">
+                        <a href="mailto:yegor2010yy@yahoo.com">Email</a>
+                        <a href="https://t.me/luckyenough" target="_blank" rel="noopener noreferrer">Telegram</a>
+                        <a href="https://github.com/Luckyenough64" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/luckyenough/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </section>
+                <footer class="page-footer">YEGOR.SYSTEMS · analytical research console</footer>
             </div>
-            <div class="output projects-section">
-                <div class="project-item">
-                    <p class="case-meta">кейс 01 / оценка AI</p>
-                    <h3>Пайплайн оценки ответов Conversational AI</h3>
-                    <p class="project-context"><strong>Контекст:</strong> нужно было превратить нестабильные, неструктурированные AI-ответы в воспроизводимый аналитический процесс.</p>
-                    <p><strong>Что исследовал и собирал:</strong></p>
-                    <ul>
-                        <li>нормализация ответов</li>
-                        <li>семантическая категоризация</li>
-                        <li>асинхронная обработка</li>
-                        <li>промежуточные чекпоинты</li>
-                        <li>аналитическая разметка</li>
-                        <li>обработка больших CSV</li>
-                    </ul>
-                    <p><strong>Фокус:</strong> надёжность оценки, промежуточные состояния, повторяемость пайплайна и объяснимость результата.</p>
-                </div>
-
-                <div class="project-item">
-                    <p class="case-meta">кейс 02 / аналитическая инфраструктура</p>
-                    <h3>Исследование высоконагруженных аналитических систем</h3>
-                    <p class="project-context"><strong>Контекст:</strong> работа с крупномасштабной аналитической инфраструктурой внутри маркетплейса, где стоимость абстракций быстро становится инфраструктурной реальностью.</p>
-                    <p><strong>Области исследования:</strong></p>
-                    <ul>
-                        <li>стратегии партиционирования</li>
-                        <li>производительность распределённых запросов</li>
-                        <li>исследование memory pressure</li>
-                        <li>анализ поведения кластера</li>
-                        <li>оптимизация тяжёлых аналитических нагрузок</li>
-                    </ul>
-                    <p><strong>Технологии:</strong> Vertica, ClickHouse, HDFS, SQL, Python</p>
-                </div>
-
-                <div class="project-item">
-                    <p class="case-meta">кейс 03 / эксперименты</p>
-                    <h3>Эксперименты и поведенческая аналитика</h3>
-                    <p class="project-context"><strong>Фокус:</strong> проектирование и интерпретация экспериментов в крупномасштабных продуктовых средах, где метрика часто показывает только верхний слой поведения.</p>
-                    <p><strong>Методы:</strong></p>
-                    <ul>
-                        <li>A/B тестирование</li>
-                        <li>survival analysis</li>
-                        <li>Cox модели</li>
-                        <li>логистическая регрессия</li>
-                        <li>поведенческая сегментация</li>
-                    </ul>
-                    <p><strong>Цель:</strong> Понимание поведения пользователей за пределами поверхностных метрик.</p>
-                </div>
-            </div>
-
-            <!-- WHAT I THINK ABOUT -->
-            <div class="prompt-line">
-                <span class="prompt">$</span>
-                <span class="command">cat things_i_think_about.txt</span>
-            </div>
-            <div class="output thinking-section">
-                <p class="section-lead">В работе я чаще всего возвращаюсь к вопросам, где продуктовая логика, данные и инфраструктура начинают влиять друг на друга.</p>
-                <ul class="thought-list">
-                    <li>почему распределённые системы деградируют непредсказуемо;</li>
-                    <li>как аналитические абстракции прячут инфраструктурную стоимость;</li>
-                    <li>как оценивать conversational AI так, чтобы результату можно было доверять;</li>
-                    <li>где A/B тесты перестают объяснять поведение пользователей;</li>
-                    <li>как строить исследовательские пайплайны, которые можно воспроизвести через месяц.</li>
-                </ul>
-            </div>
-
-            <!-- PHILOSOPHY -->
-            <div class="prompt-line">
-                <span class="prompt">$</span>
-                <span class="command">cat philosophy.txt</span>
-            </div>
-            <div class="output philosophy-section">
-                <p>Меня интересуют системы, которые сложно полностью предсказать:</p>
-                <ul>
-                    <li>распределённые базы данных,</li>
-                    <li>аналитическая инфраструктура,</li>
-                    <li>AI-системы,</li>
-                    <li>поведение пользователей,</li>
-                    <li>платформы экспериментов.</li>
-                </ul>
-                <p>Мне нравится создавать инструменты и процессы, которые помогают снизить неопределённость и объяснить поведение системы надёжным способом.</p>
-                <p>Мой подход сильно инженерно-ориентирован: надёжность, наблюдаемость, воспроизводимость и глубокое понимание систем перед их оптимизацией.</p>
-            </div>
-
-            <!-- BLOG/NOTES -->
-            <div class="prompt-line">
-                <span class="prompt">$</span>
-                <span class="command">ls -t blog/</span>
-            </div>
-            <div class="output blog-section">
-                <p class="blog-intro">О чём со мной можно поговорить:</p>
-                <ul class="blog-list">
-                    <li>
-                        <a href="blog/3-billion-partitions.html">
-                            <span>Чему меня научили 3 миллиарда партиций в аналитических системах</span>
-                            <span class="read-label">открыть заметку →</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="blog/conversational-ai-evaluation.html">
-                            <span>Почему оценка conversational AI сложнее, чем кажется</span>
-                            <span class="read-label">открыть заметку →</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="blog/memory-pressure.html">
-                            <span>Отладка memory pressure в распределённой аналитике</span>
-                            <span class="read-label">открыть заметку →</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="blog/ab-tests-lie.html">
-                            <span>Когда A/B тесты врут</span>
-                            <span class="read-label">открыть заметку →</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="blog/research-pipelines.html">
-                            <span>Построение надёжных асинхронных исследовательских пайплайнов</span>
-                            <span class="read-label">открыть заметку →</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="blog/analytical-infrastructure-notes.html">
-                            <span>Наблюдения из работы с высоконагруженной аналитической инфраструктурой</span>
-                            <span class="read-label">открыть заметку →</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- CONTACT -->
-            <div class="prompt-line">
-                <span class="prompt">$</span>
-                <span class="command">cat contact.json</span>
-            </div>
-            <div class="output contact-section" id="contacts">
-                <a href="mailto:yegor2010yy@yahoo.com" class="contact-link">
-                    <span class="icon">✉</span> yegor2010yy@yahoo.com
-                </a>
-                <a href="https://t.me/luckyenough" class="contact-link" target="_blank">
-                    <span class="icon">✈</span> t.me/luckyenough
-                </a>
-                <a href="https://github.com/Luckyenough64" class="contact-link" target="_blank">
-                    <span class="icon">⌘</span> github.com/Luckyenough64
-                </a>
-                <a href="https://www.linkedin.com/in/luckyenough/" class="contact-link" target="_blank">
-                    <span class="icon">⚡</span> linkedin.com/in/luckyenough
-                </a>
-            </div>
-
-            <div class="prompt-line cursor">
-                <span class="prompt">$</span>
-                <span class="cursor-blink">_</span>
-            </div>
-        </div>
+        </main>
     </div>
 </body>
 </html>

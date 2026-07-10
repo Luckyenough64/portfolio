@@ -26,11 +26,11 @@ const trafficMessages = {
         secondary: "вернуться к чтению"
     },
     maximize: {
-        title: "карьерный режим: расширен",
+        title: "контекст профиля: открыт",
         dot: "maximize",
         body: `
             <p>Если ты HR, PO или TGM и нажал сюда просто проверить кнопку: всё работает.</p>
-            <p>Егор умеет не только писать SQL, но и разбираться, почему система ведёт себя странно: от экспериментов и аналитической инфраструктуры до оценки Conversational AI.</p>
+            <p>На сайте собраны примеры задач Егора: эксперименты, аналитическая инфраструктура и оценка Conversational AI.</p>
         `,
         primary: "открыть контакты",
         secondary: "понятно, продолжаю"
@@ -145,6 +145,165 @@ function setupTrafficButtons() {
     });
 }
 
+function setupMobileMenu() {
+    const menuButton = document.querySelector(".mobile-menu");
+    const sidebar = document.querySelector(".sidebar");
+
+    if (!menuButton || !sidebar) {
+        return;
+    }
+
+    const closeMenu = () => {
+        sidebar.classList.remove("is-open");
+        menuButton.setAttribute("aria-expanded", "false");
+    };
+
+    menuButton.addEventListener("click", () => {
+        const isOpen = sidebar.classList.toggle("is-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    sidebar.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 980) {
+            closeMenu();
+        }
+    });
+}
+
+function setupSectionNavigation() {
+    const localLinks = [...document.querySelectorAll('.sidebar-nav a[href^="#"]')];
+
+    if (!localLinks.length || !("IntersectionObserver" in window)) {
+        return;
+    }
+
+    const linksById = new Map(localLinks.map((link) => [link.getAttribute("href").slice(1), link]));
+    const sections = [...linksById.keys()]
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
+    const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visible) {
+            return;
+        }
+
+        localLinks.forEach((link) => link.classList.remove("active"));
+        linksById.get(visible.target.id)?.classList.add("active");
+    }, {
+        rootMargin: "-20% 0px -65% 0px",
+        threshold: [0, 0.2, 0.5]
+    });
+
+    sections.forEach((section) => observer.observe(section));
+}
+
+function prefersReducedMotion() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function setupBootSequence() {
+    if (prefersReducedMotion()) {
+        return;
+    }
+
+    const targets = [
+        document.querySelector(".sidebar"),
+        document.querySelector(".toolbar"),
+        document.querySelector(".identity, .article-shell"),
+        document.querySelector(".status-grid")
+    ].filter(Boolean);
+
+    targets.forEach((element, index) => {
+        element.classList.add("boot-item");
+        element.style.setProperty("--boot-delay", `${index * 70}ms`);
+    });
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            targets.forEach((element) => element.classList.add("is-visible"));
+        });
+    });
+}
+
+function setupRevealAnimations() {
+    const items = [...document.querySelectorAll(
+        ".console-section, .contactbar, .article-section, .article-nav"
+    )];
+
+    if (!items.length || prefersReducedMotion()) {
+        return;
+    }
+
+    items.forEach((item) => item.classList.add("reveal-item"));
+
+    if (!("IntersectionObserver" in window)) {
+        items.forEach((item) => item.classList.add("is-visible"));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+        });
+    }, {
+        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.08
+    });
+
+    items.forEach((item) => observer.observe(item));
+}
+
+function setupReadingProgress() {
+    const article = document.querySelector(".article");
+    const toolbar = document.querySelector(".toolbar");
+
+    if (!article || !toolbar) {
+        return;
+    }
+
+    const progress = document.createElement("div");
+    progress.className = "reading-progress";
+    progress.setAttribute("aria-hidden", "true");
+    toolbar.appendChild(progress);
+
+    let scheduled = false;
+
+    const updateProgress = () => {
+        const articleTop = article.getBoundingClientRect().top + window.scrollY;
+        const articleEnd = articleTop + article.offsetHeight - window.innerHeight;
+        const distance = Math.max(1, articleEnd - articleTop);
+        const value = Math.min(1, Math.max(0, (window.scrollY - articleTop) / distance));
+        progress.style.transform = `scaleX(${value})`;
+        scheduled = false;
+    };
+
+    const scheduleUpdate = () => {
+        if (scheduled) {
+            return;
+        }
+
+        scheduled = true;
+        requestAnimationFrame(updateProgress);
+    };
+
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    updateProgress();
+}
+
 document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
         closeTrafficModal();
@@ -153,3 +312,8 @@ document.addEventListener("keydown", (event) => {
 
 createTrafficModal();
 setupTrafficButtons();
+setupMobileMenu();
+setupSectionNavigation();
+setupBootSequence();
+setupRevealAnimations();
+setupReadingProgress();
