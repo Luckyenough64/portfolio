@@ -426,6 +426,94 @@ function setupLanguagePreference() {
     }
 }
 
+function setupCareerDurations() {
+    const durationElements = [...document.querySelectorAll("[data-duration-start]")];
+
+    if (!durationElements.length) {
+        return;
+    }
+
+    const now = new Date();
+    const pluralizeRu = (value, one, few, many) => {
+        const mod10 = value % 10;
+        const mod100 = value % 100;
+
+        if (mod10 === 1 && mod100 !== 11) {
+            return one;
+        }
+
+        if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) {
+            return few;
+        }
+
+        return many;
+    };
+
+    durationElements.forEach((element) => {
+        const [year, month] = element.dataset.durationStart.split("-").map(Number);
+
+        if (!year || !month) {
+            return;
+        }
+
+        const totalMonths = Math.max(0, (now.getFullYear() - year) * 12 + now.getMonth() - (month - 1));
+        const years = Math.floor(totalMonths / 12);
+        const months = totalMonths % 12;
+
+        if (pageLanguage === "en") {
+            element.textContent = [years ? `${years}y` : "", months ? `${months}m` : ""]
+                .filter(Boolean)
+                .join(" ");
+            return;
+        }
+
+        const parts = [];
+
+        if (years) {
+            parts.push(`${years} ${pluralizeRu(years, "год", "года", "лет")}`);
+        }
+
+        if (months) {
+            parts.push(`${months} мес.`);
+        }
+
+        element.textContent = parts.join(" ") || "менее месяца";
+    });
+}
+
+function setupCareerTimeline() {
+    const rows = [...document.querySelectorAll("[data-career-start][data-career-end]")];
+
+    if (!rows.length) {
+        return;
+    }
+
+    const timelineStartYear = 2020;
+    const timelineMonths = 7 * 12;
+    const now = new Date();
+    const daysInCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+    const currentMonth = (now.getFullYear() - timelineStartYear) * 12
+        + now.getMonth()
+        + (now.getDate() - 1) / daysInCurrentMonth;
+
+    const monthIndex = (value) => {
+        const [year, month] = value.split("-").map(Number);
+        return (year - timelineStartYear) * 12 + month - 1;
+    };
+
+    rows.forEach((row) => {
+        const start = monthIndex(row.dataset.careerStart);
+        const end = row.dataset.careerEnd === "present"
+            ? currentMonth
+            : monthIndex(row.dataset.careerEnd);
+        const clampedStart = Math.max(0, Math.min(timelineMonths, start));
+        const clampedEnd = Math.max(clampedStart, Math.min(timelineMonths, end));
+
+        row.style.setProperty("--career-start", `${(clampedStart / timelineMonths) * 100}%`);
+        row.style.setProperty("--career-width", `${((clampedEnd - clampedStart) / timelineMonths) * 100}%`);
+    });
+}
+
 document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
         closeTrafficModal();
@@ -439,4 +527,6 @@ setupSectionNavigation();
 setupBootSequence();
 setupRevealAnimations();
 setupReadingProgress();
+setupCareerDurations();
+setupCareerTimeline();
 setupLanguagePreference();

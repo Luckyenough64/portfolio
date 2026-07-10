@@ -25,10 +25,11 @@
             <nav class="sidebar-nav" aria-label="Навигация">
                 <a class="active" href="#overview">01 обзор</a>
                 <a href="#about">02 профиль</a>
-                <a href="#focus">03 фокус</a>
-                <a href="#work">04 работа</a>
-                <a href="#logs">05 заметки</a>
-                <a href="#contacts">06 контакты</a>
+                <a href="#experience">03 опыт</a>
+                <a href="#focus">04 фокус</a>
+                <a href="#work">05 работа</a>
+                <a href="#logs">06 заметки</a>
+                <a href="#contacts">07 контакты</a>
             </nav>
             <div class="sidebar-footer">
                 <div class="system-online">● SYSTEM ONLINE</div>
@@ -78,6 +79,53 @@
                             <li>как интерпретировать результаты A/B-тестов</li>
                             <li>как проектировать воспроизводимые пайплайны</li>
                         </ul>
+                    </div>
+                </section>
+
+                <section class="console-section career-section" id="experience">
+                    <header class="section-header"><h2>$ render career_timeline --from 2020</h2><span>career / selected scope</span></header>
+                    <div class="section-body career-body">
+                        <div class="career-summary" aria-label="Краткая сводка опыта">
+                            <div><strong data-duration-start="2020-05">6 лет 2 мес.</strong><span>в digital</span></div>
+                            <div><strong data-duration-start="2022-07">4 года</strong><span>в аналитике</span></div>
+                            <div><strong data-duration-start="2023-10">2 года 9 мес.</strong><span>в Ozon</span></div>
+                            <div><strong>Data → Senior</strong><span>рост внутри Ozon</span></div>
+                        </div>
+
+                        <div class="career-chart" aria-label="Карьерный таймлайн с 2020 года">
+                            <div class="career-years" aria-hidden="true"><span></span><div><i>2020</i><i>2021</i><i>2022</i><i>2023</i><i>2024</i><i>2025</i><i>2026</i></div><span></span></div>
+
+                            <details class="career-row" data-career-start="2020-05" data-career-end="2022-07" style="--career-start: 4.8%; --career-width: 30.9%;">
+                                <summary><span class="career-place"><strong>Квинс</strong><small>Marketing Analyst</small><time>май 2020 — июль 2022</time></span><span class="career-track"><i class="career-bar"><b>2020–2022</b></i></span><span class="career-toggle" aria-hidden="true"><i class="career-toggle-open">детали</i><i class="career-toggle-close">свернуть</i></span></summary>
+                                <div class="career-detail"><p>Маркетинговая аналитика, управление performance-каналами с бюджетом более 1 млн ₽ в месяц, прототипирование сайтов и работа с полным циклом digital-продукта.</p><div class="career-tags"><span>acquisition</span><span>web analytics</span><span>SEO</span><span>product briefs</span></div></div>
+                            </details>
+
+                            <details class="career-row" data-career-start="2022-07" data-career-end="2023-01" style="--career-start: 35.7%; --career-width: 7.2%;">
+                                <summary><span class="career-place"><strong>Строительный Двор</strong><small>Web Analyst</small><time>июль 2022 — янв. 2023</time></span><span class="career-track"><i class="career-bar"><b>2022</b></i></span><span class="career-toggle" aria-hidden="true"><i class="career-toggle-open">детали</i><i class="career-toggle-close">свернуть</i></span></summary>
+                                <div class="career-detail"><p>BI-отчётность, автоматизация аналитики, работа с Vertica, статистические исследования и A/B-тесты.</p><div class="career-tags"><span>Power BI</span><span>DataLens</span><span>Vertica</span><span>KNIME</span><span>Python</span></div></div>
+                            </details>
+
+                            <details class="career-row" data-career-start="2023-01" data-career-end="2023-10" style="--career-start: 42.9%; --career-width: 10.7%;">
+                                <summary><span class="career-place"><strong>AIM CLO</strong><small>Product / Web Analyst</small><time>янв. 2023 — окт. 2023</time></span><span class="career-track"><i class="career-bar"><b>2023</b></i></span><span class="career-toggle" aria-hidden="true"><i class="career-toggle-open">детали</i><i class="career-toggle-close">свернуть</i></span></summary>
+                                <div class="career-detail"><p>Исследование продукта и пользовательского поведения, метрики и A/B-тесты, переезд на GA4, ETL по API и прогнозирование продуктовых показателей.</p><div class="career-tags"><span>product analytics</span><span>GA4</span><span>ETL</span><span>forecasting</span><span>Python / R</span></div></div>
+                            </details>
+
+                            <details class="career-row career-row-current" data-career-start="2023-10" data-career-end="present" style="--career-start: 53.6%; --career-width: 39.6%;" open>
+                                <summary><span class="career-place"><strong>Ozon</strong><small>Data Analyst → Senior</small><time>окт. 2023 — сейчас</time></span><span class="career-track"><i class="career-bar career-bar-ozon"><b>Data Analyst</b><b>Senior</b></i></span><span class="career-toggle" aria-hidden="true"><i class="career-toggle-open">детали</i><i class="career-toggle-close">свернуть</i></span></summary>
+                                <div class="career-detail career-detail-ozon">
+                                    <div><time>окт. 2023 — окт. 2025</time><h3>Data Analyst</h3><p>Аналитическая инфраструктура, ETL, витрины данных, тяжёлые запросы и продуктовая отчётность.</p></div>
+                                    <div><time>окт. 2025 — сейчас</time><h3>Senior Data Analyst</h3><p>Эксперименты, оценка ML/RAG-чат-ботов, оптимизация аналитических процессов, code review, собеседования и развитие сообщества.</p></div>
+                                </div>
+                            </details>
+                        </div>
+
+                        <div class="career-progression"><span>MARKETING</span><i></i><span>WEB ANALYTICS</span><i></i><span>PRODUCT</span><i></i><span>DATA SYSTEMS</span><i></i><span>EXPERIMENTATION / AI</span></div>
+
+                        <div class="career-impact" aria-label="Выбранные результаты">
+                            <div><strong>&gt;50 млн ₽</strong><p>оценённого годового эффекта при аналитической поддержке продуктовых изменений и экспериментов</p></div>
+                            <div><strong>Ozon Tech Community</strong><p>награда за вклад в развитие аналитического сообщества</p></div>
+                            <a href="https://t.me/trisigma_avito/155" target="_blank" rel="noopener noreferrer"><strong>Публичные доклады ↗</strong><p>аналитика и A/B-тестирование вместе со спикерами из Avito и Яндекса</p></a>
+                        </div>
                     </div>
                 </section>
 
