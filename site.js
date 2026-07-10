@@ -153,18 +153,45 @@ function setupMobileMenu() {
         return;
     }
 
+    const backdrop = document.createElement("button");
+    backdrop.className = "menu-backdrop";
+    backdrop.type = "button";
+    backdrop.setAttribute("aria-label", "Закрыть меню");
+    document.body.appendChild(backdrop);
+
     const closeMenu = () => {
         sidebar.classList.remove("is-open");
+        backdrop.classList.remove("is-visible");
+        document.body.classList.remove("menu-open");
         menuButton.setAttribute("aria-expanded", "false");
     };
 
+    const openMenu = () => {
+        sidebar.classList.add("is-open");
+        backdrop.classList.add("is-visible");
+        document.body.classList.add("menu-open");
+        menuButton.setAttribute("aria-expanded", "true");
+    };
+
     menuButton.addEventListener("click", () => {
-        const isOpen = sidebar.classList.toggle("is-open");
-        menuButton.setAttribute("aria-expanded", String(isOpen));
+        if (sidebar.classList.contains("is-open")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
+
+    backdrop.addEventListener("click", closeMenu);
 
     sidebar.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && sidebar.classList.contains("is-open")) {
+            closeMenu();
+            menuButton.focus();
+        }
     });
 
     window.addEventListener("resize", () => {
