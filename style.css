@@ -545,6 +545,13 @@ body.menu-open {
     margin-top: 3px;
 }
 
+.career-row-current .career-place small {
+    line-height: 1.35;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+}
+
 .career-place time {
     color: var(--orange);
     display: block;
@@ -605,7 +612,7 @@ body.menu-open {
 .career-bar-ozon {
     align-items: stretch;
     display: grid;
-    grid-template-columns: 24fr 9fr;
+    grid-template-columns: 24fr 12fr;
 }
 
 .career-bar-ozon b {
@@ -614,9 +621,33 @@ body.menu-open {
 }
 
 .career-bar-ozon b:last-child {
-    background: rgba(126, 231, 135, .16);
-    border-left: 1px solid var(--green);
+    background: rgba(255, 169, 92, .1);
+    border-left: 1px solid var(--orange);
+    color: var(--orange);
+}
+
+.career-lead-marker {
+    align-items: center;
+    background: #101a16;
+    border: 1px solid var(--green);
     color: var(--green);
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    left: calc(var(--career-start) + var(--career-width));
+    min-width: 44px;
+    padding: 0 7px;
+    position: absolute;
+    top: -7px;
+    transform: translateX(-100%);
+    z-index: 3;
+}
+
+.career-lead-marker b {
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .career-row-current .career-track::before {
@@ -693,7 +724,7 @@ body.menu-open {
 .career-detail-ozon {
     display: grid;
     gap: 24px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .career-detail-ozon > div + div {
@@ -714,6 +745,11 @@ body.menu-open {
     font-family: Arial, sans-serif;
     font-size: 15px;
     margin-bottom: 5px;
+}
+
+.career-role-current h3,
+.career-role-current time {
+    color: var(--green);
 }
 
 .career-progression {
